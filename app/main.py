@@ -49,3 +49,5 @@ except IOError as err:
 
 # Clear the terminal to begin the main application
 os.system("./Utils/clear.py")
+
+
