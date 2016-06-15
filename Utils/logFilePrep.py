@@ -2,10 +2,22 @@
 
 ###############################################################################
  #
- # Class to prepare to open the log file
+ # Script to prepare to open the log file
  #
- # Author/copyright:  Mitchell Thompson
- # Date: 2016 May 07
+ # Copyright (C) 2016 June 02  Mitchell Thompson
+ #
+ # This program is free software: you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License as published by
+ # the Free Software Foundation, either version 3 of the License, or
+ # (at your option) any later version.
+ #
+ # This program is distributed in the hope that it will be useful,
+ # but WITHOUT ANY WARRANTY; without even the implied warranty of
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ # GNU General Public License for more details.
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
  # 
 ##
 
@@ -16,7 +28,7 @@ import time
 complete = False
 
 def prepStart():
-  # Change working directory to main directory of 'Income'
+  # Change working directory to main directory of 'Cheat Sheet'
   os.system("cd ..")
 
   # Move the previous log file to the log archive and create a fresh one.
