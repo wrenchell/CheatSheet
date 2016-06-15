@@ -26,6 +26,7 @@
 import os
 import sys
 import logFilePrep
+import header
 
 # Change the working directory to the main directory of 'Cheat Sheet'
 os.system("cd ..")
@@ -48,6 +49,13 @@ except IOError as err:
 
 
 # Clear the terminal to begin the main application
+log.write("Logfile opening sucessful.  Clearing terminal to start main exe")
 os.system("./Utils/clear.py")
 
+# Run the script to display the header
+log.write("Displaying header.  Entering Header.py")
 
+width = header.detect()
+header.display(width)
+
+log.write("Leaving header.py")

@@ -21,6 +21,7 @@
  #
  ##
 
+import os
 import sys
 import fcntl
 import termios

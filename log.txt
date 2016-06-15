@@ -1,2 +1,3 @@
 Beginning execution.  Opened logfile.
 
+Logfile opening sucessful.  Clearing terminal to start main exeDisplaying header.  Entering Header.pyLeaving header.py
