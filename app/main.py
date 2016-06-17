@@ -86,18 +86,19 @@ if menuChoice == '1':
   log.write("Leaving generator")
 
 if menuChoice == '2':
-  print "Temp.  Menu Choice 2"
+  os.system("view LICENSE")
 if menuChoice == '3':
   sys.exit()
 
 # Start all over again
-while menuChoice != 3:
+while menuChoice != '3':
   os.system("./Utils/clear.py")
   header.display(width)
   menuX = menu.Menu()
   menuChoice = menuX.display()
 
   if menuChoice == '1':
+    gen = generator.Generator()
     gen.gen(panelLetter, panelNum)
   if menuChoice == '2':
     print "Temp.  Menu Choice 2"

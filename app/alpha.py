@@ -28,9 +28,10 @@ class Alpha:
     # letters.  We will also assign a value to seperate variables.
     
     alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O']
-    alphabet += ['P','Q','R','S','T','U','V','W','X','Y','X']
-
-    print alphabet
+    alphabet += ['P','Q','R','S','T','U','V','W','X','Y','Z']
+    
+    for x in range(0, 25000):
+        alphabet += ['Panel' + str(x)]
    
     panelNum = range(0, 25000, 48)
 
