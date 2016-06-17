@@ -35,26 +35,26 @@ def prepStart():
   sys.stderr.write("Moving old log file and creating a new one\n")
 
   currentTime = time.strftime("%Y_%j_%H:%M:%S")
-  oldLogFile = "oldLogs/log" + currentTime + ".txt"
+  oldLogFile = ".oldLogs/log" + currentTime + ".txt"
   sys.stderr.write(oldLogFile)
 
-  logFileCommand = "cp log.txt " + oldLogFile
+  logFileCommand = "cp .log.txt " + oldLogFile
   os.system(logFileCommand)
 
   sys.stderr.write("\nOld log file copied to the archive. Removing from" + \
                    " current Dir\n")
 
   try:
-    os.system("rm log.txt")
-    os.system("touch log.txt")
+    os.system("rm .log.txt")
+    os.system("touch .log.txt")
   
     sys.stderr.write("New log file created.  All log out will now appear" + \
-                     " in log.txt\n")
+                     " in .log.txt\n")
     
     complete = True
   except Exception as e:
   
-    os.system("touch log.txt")
+    os.system("touch .log.txt")
 
     sys.stderr.write("Removal of old log file failed, a new one should" + \
                      " have been created.  Double check everything.\n")

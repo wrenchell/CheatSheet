@@ -26,8 +26,9 @@ class Menu():
 
     print "Choose an option: "
     print "1.  Generate for a new project"
-    print "2.  View Licence"
-    print "3.  Exit\n"
+    print "2.  View License"
+    print "3.  Clean program files"
+    print "4.  Exit\n"
 
     choice = raw_input("Selection: ")
 

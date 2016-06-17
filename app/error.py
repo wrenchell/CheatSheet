@@ -2,9 +2,9 @@
 
 ###############################################################################
  #
- # Script to detect the width of the terminal and print the header
+ # Bulletproofing script for user input.
  #
- # Copyright (C) 2016 June 14  Mitchell Thompson
+ # Copyright (C) 2016 June 17  Mitchell Thompson
  #
  # This program is free software: you can redistribute it and/or modify
  # it under the terms of the GNU General Public License as published by
@@ -19,37 +19,28 @@
  # You should have received a copy of the GNU General Public License
  # along with this program.  If not, see <http://www.gnu.org/licenses/>.
  #
- ##
-
-import os
+##
 import sys
-import fcntl
-import termios
-import struct
+import os
 
-version = "0.1.0"
 
-def detect():
-  lines, cols = struct.unpack('hh', fcntl.ioctl(sys.stdout, termios.TIOCGWINSZ, '1234'))
-  temp = '%d' % (cols)
-  width = int(temp)
-  return width
+def testInt(x):
+  error = 0
+  chars = list(x)
   
- 
-def display(size):
-  header = ""
+  for i in chars:
+    if (i > '9' or i < '0'):
+      return 'false'
 
-  for x in range(0, size):
-    header += ("#")
+  return 'true'
 
-  header += ("\n #\n # Cheat Sheet Generator version " + version + "\n #\n")
+def testStr(s):
+  theChars = list(s)
+  print theChars
   
-  for x in range(0, size):
-    header += ("#")
-
-  header += "\n"
-  
-  print header
-
-
-
+  for ters in theChars:
+    if (ters < '0' or (ters > '9' and ters < 'A') or ters > 'z' or ters == '@'):
+      return 'false'
+    
+  return 'true'
+   

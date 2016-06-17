@@ -42,7 +42,7 @@ assert (complete == True), "Log File setup failed"
 
 # Opening the file stream for the logfile
 try:
-  log = open('log.txt', 'r+')
+  log = open('.log.txt', 'r+')
 
   log.write("Beginning execution.  Opened logfile.\n\n")
 
@@ -87,11 +87,16 @@ if menuChoice == '1':
 
 if menuChoice == '2':
   os.system("view LICENSE")
+
 if menuChoice == '3':
+  os.system('rm -r .oldLogs')
+  os.system('mkdir .oldLogs')
+
+if menuChoice == '4':
   sys.exit()
 
 # Start all over again
-while menuChoice != '3':
+while menuChoice != '4':
   os.system("./Utils/clear.py")
   header.display(width)
   menuX = menu.Menu()
@@ -100,8 +105,13 @@ while menuChoice != '3':
   if menuChoice == '1':
     gen = generator.Generator()
     gen.gen(panelLetter, panelNum)
+
   if menuChoice == '2':
-    print "Temp.  Menu Choice 2"
+    os.system('view LICENSE')
+
+  if menuChoice == '3':
+    os.system('rm -r .oldLogs')
+    os.system('mkdir .oldLogs')
 
 
 log.close()
