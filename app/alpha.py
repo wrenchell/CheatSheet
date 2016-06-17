@@ -2,9 +2,9 @@
 
 ###############################################################################
  #
- # Script to detect the width of the terminal and print the header
+ # Class to create the patch panel letters and assign a value to them.
  #
- # Copyright (C) 2016 June 14  Mitchell Thompson
+ # Copyright (C) 2016 June 15  Mitchell Thompson
  #
  # This program is free software: you can redistribute it and/or modify
  # it under the terms of the GNU General Public License as published by
@@ -18,38 +18,21 @@
  #
  # You should have received a copy of the GNU General Public License
  # along with this program.  If not, see <http://www.gnu.org/licenses/>.
- #
- ##
+ # 
+##
+class Alpha:
 
-import os
-import sys
-import fcntl
-import termios
-import struct
+  def start(self):
+    
+    # Here we will generate all the variables for the possible patch pannel
+    # letters.  We will also assign a value to seperate variables.
+    
+    alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O']
+    alphabet += ['P','Q','R','S','T','U','V','W','X','Y','X']
 
+    print alphabet
+   
+    panelNum = range(0, 25000, 48)
 
-def detect():
-  lines, cols = struct.unpack('hh', fcntl.ioctl(sys.stdout, termios.TIOCGWINSZ, '1234'))
-  temp = '%d' % (cols)
-  width = int(temp)
-  return width
-  
- 
-def display(size):
-  os.system("cd ..")
-  header = ""
-
-  for x in range(0, size):
-    header += ("#")
-
-  header += ("\n #\n # Cheat Sheet Generator ver 0.0.1a\n #\n")
-  
-  for x in range(0, size):
-    header += ("#")
-
-  header += "\n"
-  
-  print header
-
-
+    return alphabet, panelNum
 

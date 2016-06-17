@@ -6,5 +6,3 @@ Logfile opening sucessful.  Clearing terminal to start main exe
 Displaying header.  Entering Header.py
 Leaving header
 Entering menu.  Displaying the menu
-Leaving menu
-User chose 1, entering generatorLeaving generator

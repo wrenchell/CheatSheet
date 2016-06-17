@@ -2,9 +2,9 @@
 
 ###############################################################################
  #
- # Script to detect the width of the terminal and print the header
+ # Class to display the menu to start the Generator
  #
- # Copyright (C) 2016 June 14  Mitchell Thompson
+ # Copyright (C) 2016 June 16  Mitchell Thompson
  #
  # This program is free software: you can redistribute it and/or modify
  # it under the terms of the GNU General Public License as published by
@@ -20,36 +20,15 @@
  # along with this program.  If not, see <http://www.gnu.org/licenses/>.
  #
  ##
+class Menu():
 
-import os
-import sys
-import fcntl
-import termios
-import struct
+  def display(self):
 
+    print "Choose an option: "
+    print "1.  Generate for a new project"
+    print "2.  View Licence"
+    print "3.  Exit\n"
 
-def detect():
-  lines, cols = struct.unpack('hh', fcntl.ioctl(sys.stdout, termios.TIOCGWINSZ, '1234'))
-  temp = '%d' % (cols)
-  width = int(temp)
-  return width
-  
- 
-def display(size):
-  os.system("cd ..")
-  header = ""
+    choice = raw_input("Selection: ")
 
-  for x in range(0, size):
-    header += ("#")
-
-  header += ("\n #\n # Cheat Sheet Generator ver 0.0.1a\n #\n")
-  
-  for x in range(0, size):
-    header += ("#")
-
-  header += "\n"
-  
-  print header
-
-
-
+    return choice

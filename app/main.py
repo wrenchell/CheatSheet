@@ -27,9 +27,12 @@ import os
 import sys
 import logFilePrep
 import header
+import alpha
+import menu
+import generator
 
 # Change the working directory to the main directory of 'Cheat Sheet'
-os.system("cd ..")
+#os.chdir("CheatSheet")
 
 # Call to logFilePrep to prepare to open the new logfile
 print "Calling logFilePrep.py to clean and prepare the new log file.\n"
@@ -47,15 +50,57 @@ except IOError as err:
   print "I/O error ({0}): {1}".format(err.errno, err.strerror)
   sys.exit()
 
+# Generate the patch panel letters and numbers
+log.write("Entering Alpha to generate patch panel letters and numbers\n")
+
+theLetters = alpha.Alpha()
+panelLetter, panelNum = theLetters.start()
+
+log.write("Leaving Alpha\n")
 
 # Clear the terminal to begin the main application
-log.write("Logfile opening sucessful.  Clearing terminal to start main exe")
+log.write("Logfile opening sucessful.  Clearing terminal to start main exe\n")
 os.system("./Utils/clear.py")
 
 # Run the script to display the header
-log.write("Displaying header.  Entering Header.py")
+log.write("Displaying header.  Entering Header.py\n")
 
 width = header.detect()
 header.display(width)
 
-log.write("Leaving header.py")
+log.write("Leaving header\n")
+
+# Run the menu and get the user selection
+log.write("Entering menu.  Displaying the menu\n")
+
+menuX = menu.Menu()
+menuChoice = menuX.display() 
+
+log.write("Leaving menu\n")
+
+# Choose what to do after the menu selection is returned
+if menuChoice == '1':
+  log.write("User chose 1, entering generator")
+  gen = generator.Generator()
+  gen.gen(panelLetter, panelNum)
+  log.write("Leaving generator")
+
+if menuChoice == '2':
+  print "Temp.  Menu Choice 2"
+if menuChoice == '3':
+  sys.exit()
+
+# Start all over again
+while menuChoice != 3:
+  os.system("./Utils/clear.py")
+  header.display(width)
+  menuX = menu.Menu()
+  menuChoice = menuX.display()
+
+  if menuChoice == '1':
+    gen.gen(panelLetter, panelNum)
+  if menuChoice == '2':
+    print "Temp.  Menu Choice 2"
+
+
+log.close()
