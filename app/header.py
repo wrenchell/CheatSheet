@@ -36,7 +36,6 @@ def detect():
   
  
 def display(size):
-  os.system("cd ..")
   header = ""
 
   for x in range(0, size):
